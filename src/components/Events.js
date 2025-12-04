@@ -114,7 +114,7 @@ const EnhancedEventsPage = () => {
   // 7. DELETE ACCOUNT
   // ──────────────────────────────────────────────────────────────
   const handleDeleteAccount = async () => {
-    if (!confirm("Delete your account? This cannot be undone.")) return
+    if (!window.confirm("Delete your account? This cannot be undone.")) return
     const { error } = await supabase.auth.deleteUser()
     if (error) return alert("Failed: " + error.message)
     alert("Account deleted.")
@@ -787,5 +787,6 @@ const EnhancedEventsPage = () => {
     </div>
   )
 }
+
 
 export default EnhancedEventsPage
