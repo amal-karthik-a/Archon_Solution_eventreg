@@ -126,7 +126,7 @@ function EnhancedAddEvent() {
 
   // DELETE EVENT
   const handleDeleteEvent = async (eventId) => {
-    if (!confirm("Cancel this event?")) return
+    if (!window.confirm("Cancel this event?")) return
 
     const { error } = await supabase.from('events').delete().eq('id', eventId)
     if (error) {
@@ -174,7 +174,7 @@ function EnhancedAddEvent() {
 
   // DELETE ACCOUNT
   const handleDeleteAccount = async () => {
-    if (!confirm("Delete your account? This cannot be undone.")) return
+    if (!window.confirm("Delete your account? This cannot be undone.")) return
 
     const { error } = await supabase.auth.deleteUser()
     if (error) {
@@ -853,5 +853,6 @@ function EnhancedAddEvent() {
     </div>
   )
 }
+
 
 export default EnhancedAddEvent
